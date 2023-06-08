@@ -1,0 +1,7 @@
+node_modules
+test-coverage
+.env
+.history
+dist
+tests/cypress/video
+tests/cypress/screenshots
