@@ -1,9 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
-const Dotenv = require('dotenv-webpack');
+const dotenv = require('dotenv');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+dotenv.config();
 module.exports = {
   entry: {
     main: './src/index.tsx',
@@ -66,7 +66,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new Dotenv(),
+    new webpack.EnvironmentPlugin({ ...process.env }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       favicon: './src/assets/logo.svg',
